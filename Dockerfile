@@ -1,5 +1,5 @@
 FROM node:10.13
-
+WORKDIR /app
 RUN apt-get update && \
   apt-get install -y \
     libgtk2.0-0 \
@@ -12,3 +12,6 @@ RUN apt-get update && \
   npm install cordova -g && \
   npm install typescript@2.6.2 -g && \
   npm install ionic-angular@3.9.4 -g
+  COPY . /app
+  RUN npm install
+  CMD ["ionic","serve","-p","8100"]
