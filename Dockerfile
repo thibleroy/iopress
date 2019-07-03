@@ -12,6 +12,6 @@ RUN apt-get update && \
   npm install cordova -g && \
   npm install typescript@2.6.2 -g && \
   npm install ionic-angular@3.9.4 -g
-  COPY . /app
-  RUN npm install
-  CMD ["ionic","serve","-p","8100"]
+COPY . /app
+RUN npm install
+CMD ["ionic","serve","-p","8100"]
