@@ -5,10 +5,12 @@
   "homepage": "http://ionicframework.com/",
   "private": true,
   "scripts": {
-    "start": "ionic-app-scripts serve",
+    "start-server": "ionic-app-scripts serve",
     "clean": "ionic-app-scripts clean",
     "build": "ionic-app-scripts build",
-    "lint": "ionic-app-scripts lint"
+    "lint": "ionic-app-scripts lint",
+    "test": "cypress run",
+    "ci": "start-server-and-test start-server http://localhost:8100 test"
   },
   "dependencies": {
     "@angular/animations": "5.2.11",
@@ -33,7 +35,9 @@
   },
   "devDependencies": {
     "@ionic/app-scripts": "3.2.2",
+    "@types/sinon": "^4.3.3",
     "cordova": "^9.0.0",
+    "start-server-and-test": "^1.9.1",
     "typescript": "~2.6.2"
   },
   "description": "An Ionic project"

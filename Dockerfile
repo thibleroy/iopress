@@ -1,14 +1,9 @@
-FROM node:10.13
-
-RUN apt-get update && \
-  apt-get install -y \
-    libgtk2.0-0 \
-    libnotify-dev \
-    libgconf-2-4 \
-    libnss3 \
-    libxss1 \
-    libasound2 \
-    xvfb && \
-  npm install cordova -g && \
-  npm install typescript@2.6.2 -g && \
-  npm install ionic-angular@3.9.4 -g
+FROM node:10.16.0
+ENV PATH /app/node_modules/.bin:$PATH
+WORKDIR /app
+RUN npm install cordova@8.1.2 -g && \
+    npm install ionic@4.8.0 -g
+COPY . /app
+RUN npm install && \
+    npm rebuild node-sass
+CMD npm run ci
